@@ -1,0 +1,14 @@
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\bin\Debug\TileEngine.exe.config
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\bin\Debug\TileEngine.exe
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\bin\Debug\TileEngine.pdb
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\obj\Debug\TileEngine.csproj.AssemblyReference.cache
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\obj\Debug\TileEngine.csproj.CoreCompileInputs.cache
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\obj\Debug\TileEngine.exe
+C:\Users\serta\Belgeler\Projects\C++\TileEngine\TileEngine\obj\Debug\TileEngine.pdb
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\bin\Debug\TileEngine.exe.config
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\bin\Debug\TileEngine.exe
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\bin\Debug\TileEngine.pdb
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\obj\Debug\TileEngine.csproj.AssemblyReference.cache
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\obj\Debug\TileEngine.csproj.CoreCompileInputs.cache
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\obj\Debug\TileEngine.exe
+C:\Users\serta\Belgeler\Projects\Github\TilEngine\TileEngine\TileEngine\obj\Debug\TileEngine.pdb
