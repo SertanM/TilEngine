@@ -13,13 +13,20 @@ namespace TileEngine
         public Vector scale { get; set; }
         public Color color = Color.Black;
         public string tag;
+        public bool activeSelf = true;
 
-        public Shape(Vector position, Vector scale, Color color, string tag = "default")
+        public void SetActive(bool activeSelf)
+        {
+            this.activeSelf = activeSelf;
+        }
+
+        public Shape(Vector position, Vector scale, Color color, string tag = "default", bool activeSelf=true)
         {
             this.position = position;
             this.scale = scale;
             this.color = color;
             this.tag = tag;
+            this.activeSelf = activeSelf;
             Tilengine.RegisterShape(this);
         }
 
@@ -28,11 +35,15 @@ namespace TileEngine
             List<Shape> p = Tilengine.GetShapesWithTag(tag);
             foreach (Shape s in p)
             {
-                if (s.position.y + s.scale.y > shape.position.y && shape.position.y + shape.scale.y > s.position.y
-                    && s.position.x + s.scale.x > shape.position.x && shape.position.x + shape.scale.x > s.position.x)
+                if (s.activeSelf)
                 {
-                    return true;
+                    if (s.position.y + s.scale.y > shape.position.y && shape.position.y + shape.scale.y > s.position.y
+                    && s.position.x + s.scale.x > shape.position.x && shape.position.x + shape.scale.x > s.position.x)
+                    {
+                        return true;
+                    }
                 }
+                    
             }
             return false;
         }

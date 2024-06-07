@@ -25,14 +25,16 @@ namespace TileEngine
     {
         public static Vector ScreanSize = new Vector(500, 500);
         public string Title = "";
+        public Color BackgroundColor = Color.Black;
         public static Canvas Window = null;
         private Thread GameLoopThread = null;
         public static List<Shape> RenderStack  = new List<Shape>();
         public static bool keyW, keyA, keyS, keyD;
-        public Tilengine(Vector screanSize, string title)
+        public Tilengine(Vector screanSize, string title, Color bgColor)
         {
             ScreanSize = screanSize;
             Title = title;
+            BackgroundColor = bgColor;
 
             Window = new Canvas();
             Window.Size = new Size((int)ScreanSize.x, (int)ScreanSize.y);
@@ -105,11 +107,11 @@ namespace TileEngine
         private void Renderer(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(Color.Black);
+            g.Clear(BackgroundColor);
             List<Shape> Render = new List<Shape>(RenderStack);
             foreach (Shape s in Render) 
             {
-                g.FillRectangle(new SolidBrush(s.color), (int)s.position.x, (int)s.position.y, (int)s.scale.x, (int)s.scale.y);
+                if (s.activeSelf) g.FillRectangle(new SolidBrush(s.color), (int)s.position.x, (int)s.position.y, (int)s.scale.x, (int)s.scale.y);
             }
         }
         public abstract void Load(); 
