@@ -4,21 +4,67 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace TileEngine
 {
-    internal class cameraMovement : Tilengine
+    internal class cameraMovement : Tilengine //It's only a test game.
     {
-        public cameraMovement() : base(new Vector(800, 500), "Camera Movement Test", Color.Black) { }
+        public cameraMovement() : base(new Vector(800, 500), "Camera Movement Test", Color.White) { }
         
         public List<Shape> shapes = new List<Shape>();
         public Shape player;
 
         public override void Load()
         {
-            shapes.Add(new Shape(new Vector(10, 10), new Vector(10, 10), Color.White));
-            shapes.Add(new Shape(new Vector(-100, 40), new Vector(100, 100), Color.Yellow));
-            shapes.Add(player = new Shape(new Vector(400, 200), new Vector(50, 50), Color.Red));
+            string[,] map = new string[10,10] { 
+                {"W", "W", "W", "W", "W", ".", ".", ".", ".", "W"},
+                {"W", ".", ".", ".", "W", ".", ".", ".", ".", "W"},
+                {"W", ".", "W", ".", "W", "W", "W", "W", ".", "W"},
+                {"W", ".", "W", ".", ".", ".", ".", "W", ".", "W"},
+                {"W", ".", "W", "W", ".", ".", ".", "W", ".", "."},
+                {"W", ".", ".", "W", "W", "W", "W", "W", ".", "."},
+                {"W", ".", ".", "W", ".", ".", ".", ".", ".", "W"},
+                {"W", ".", "p", "W", "W", "W", ".", ".", ".", "W"},
+                {"W", ".", ".", ".", ".", "W", ".", ".", ".", "W"},
+                {"W", "W", "W", "W", "W", "W", ".", ".", "W", "W"}
+            };
+            Tiles.AddRoom(map);
+            foreach(Vector i in Tiles.GetTiles("W"))
+            {
+                shapes.Add(new Shape(i, new Vector(50, 50), Color.Black, "wall"));
+            }
+            foreach(Vector i in Tiles.GetTiles("p"))
+            {
+                shapes.Add(player = new Shape(i, new Vector(25, 25), Color.Red, "player"));
+            }
+
+            
+            if (player != null)
+            {
+                if (player.position.x != 388)
+                {
+                    foreach(Shape s in shapes)
+                    {
+                        if (s != player)
+                        {
+                            s.position.x -= player.position.x - 388;
+                        }
+                    }
+                    player.position.x = 388;
+                }
+                if (player.position.y != 238)
+                {
+                    foreach(Shape s in shapes)
+                    {
+                        if(s!=player)
+                        {
+                            s.position.y -= player.position.y - 238;
+                        }
+                    }
+                    player.position.y = 238;
+                }
+            }
         }
         public override void Update()
         {
@@ -29,7 +75,7 @@ namespace TileEngine
                 }
                 player.position.y -= 1;
             }
-            else if (keyS)
+            if (keyS)
             {
                 foreach (Shape s in shapes)
                 {
@@ -37,7 +83,7 @@ namespace TileEngine
                 }
                 player.position.y += 1;
             }
-            else if(keyA)
+            if(keyA)
             {
                 foreach (Shape s in shapes)
                 {
@@ -45,7 +91,7 @@ namespace TileEngine
                 }
                 player.position.x -= 1;
             }
-            else if (keyD)
+            if (keyD)
             {
                 foreach(Shape s in shapes)
                 {

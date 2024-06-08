@@ -12,7 +12,7 @@ namespace TileEngine
         static void Main(string[] args)
         {
             //FlappyBirdGame game = new FlappyBirdGame(); it's an test game
-            //cameraMovement camTest = new cameraMovement(); it's an test game
+            cameraMovement camTest = new cameraMovement(); //it's an test game
         }
     }
 }
